@@ -1,45 +1,39 @@
 # 🌳 Daily Reflection Tree (DT Fellowship)
 
-A deterministic, data-driven reflection tool designed to help employees navigate their daily experiences through the lens of management science and organizational psychology.
+A deterministic, data-driven reflection agent designed to help employees evaluate their day through the lens of management science and organizational psychology.
 
-## 🚀 The Core Philosophy
-Unlike standard AI chatbots, this tool is **fully deterministic**. It uses a structured ontology to guide users through three critical psychological axes. There are no LLM calls at runtime—ensuring a predictable, auditable, and high-quality reflection every single time.
+## 🚀 Overview
+This project is a **Deterministic Reflection Tool**. Unlike generic AI chatbots, this system follows a pre-defined branching logic to guide users through rigorous thinking without the risk of LLM hallucinations. It translates fuzzy human emotions into structured, auditable decision paths.
 
 ### The Three Axes of Reflection:
-1.  **Locus (Victim ↔ Victor):** Shifting from "Why me?" to "What can I control?" based on Julian Rotter’s Locus of Control.
-2.  **Orientation (Entitlement ↔ Contribution):** Moving from "What do I get?" to "What did I give?" focusing on Organizational Citizenship Behavior.
-3.  **Radius (Self-Centrism ↔ Altrocentrism):** Expanding concern from personal stress to team and customer impact (Maslow’s Self-Transcendence).
+1.  **Locus (Victim ↔ Victor):** Internal vs. External locus of control (based on Julian Rotter & Carol Dweck).
+2.  **Orientation (Entitlement ↔ Contribution):** Focus on value creation vs. perceived lack of support.
+3.  **Radius (Self-Centrism ↔ Altrocentrism):** Zooming out from personal stress to team and customer value (Maslow’s Self-Transcendence).
 
 ---
 
 ## 📂 Project Structure
 
-| Folder / File | Purpose |
+| Folder / File | Content |
 | :--- | :--- |
-| [`/tree`](./tree) | Contains the `reflection-tree.json` (the brain) and the visual logic map. |
-| [`/agent`](./agent) | CLI-based Python script that executes the tree logic. |
-| [`/transcripts`](./transcripts) | Recorded sessions showing different employee personas. |
-| [`write-up.md`](./write-up.md) | Detailed design rationale and psychological grounding. |
+| [`/tree`](./tree) | **The Knowledge Base:** Contains the `reflection-tree.json` and the logic diagram. |
+| [`/agent`](./agent) | **The Engine:** A Python CLI tool that executes the deterministic logic. |
+| [`/transcripts`](./transcripts) | **Proof of Concept:** Sample runs showing different persona paths. |
+| [`write-up.md`](./write-up.md) | **Deep Dive:** Detailed design rationale and psychological grounding. |
 
 ---
 
-## 🛠️ How it Works
-
-The system operates on a **Node-Signal-State** architecture:
-- **Deterministic Branching:** Every user choice leads to a pre-defined path.
-- **Signals:** As the user answers, the system tallies 'signals' (e.g., `axis1:internal`) to build a persona profile.
-- **Interpolation:** The final reflection summary dynamically injects the user's own words and tallies back into the conversation.
-
-### Visualizing the Tree
-You can view the full branching logic here:  
-👉 **[View Decision Tree Diagram](./tree/tree-diagram.md)**
+## ⚙️ Technical Architecture
+- **Deterministic Routing:** Uses a node-based system where every user selection leads to a fixed next state.
+- **Signal Tallying:** The system captures "Signals" (e.g., `axis1:internal`) throughout the session.
+- **Zero-LLM Runtime:** Built to be predictable, auditable, and secure.
+- **Dynamic Synthesis:** The final summary interpolates user data into a personalized reflection.
 
 ---
 
-## 💻 Running the Agent (Part B)
+## 🛠️ Installation & Usage
 
-If you have Python installed, you can run the reflection tool locally:
-
-1. Clone the repo:
+1. **Clone the Repository:**
    ```bash
    git clone [https://github.com/YOUR_USERNAME/daily-reflection-tree.git](https://github.com/YOUR_USERNAME/daily-reflection-tree.git)
+   cd daily-reflection-tree
