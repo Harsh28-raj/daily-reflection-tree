@@ -1,0 +1,47 @@
+[
+  { "id": "START", "parentId": null, "type": "start", "text": "Good evening! Let's take 5 minutes to process how today went.", "options": "", "target": "A1_OPEN", "signal": "" },
+  
+  { "id": "A1_OPEN", "parentId": "START", "type": "question", "text": "Looking back, how would you describe the overall 'vibe' of your day?", "options": "Productive & Smooth|Challenging but Managed|Frustrating & Out of Control|Slow & Passive", "target": "", "signal": "" },
+  
+  { "id": "A1_D1", "parentId": "A1_OPEN", "type": "decision", "text": "", "options": "answer=Productive & Smooth|Challenging but Managed:A1_Q_VICTOR;answer=Frustrating & Out of Control|Slow & Passive:A1_Q_VICTIM", "target": "", "signal": "" },
+  
+  { "id": "A1_Q_VICTOR", "parentId": "A1_D1", "type": "question", "text": "You felt in flow. When things went well, what was your role in it?", "options": "I prepared and executed well|I stayed focused despite distractions|The stars aligned for me|I just did my job", "target": "", "signal": "axis1:internal" },
+  
+  { "id": "A1_Q_VICTIM", "parentId": "A1_D1", "type": "question", "text": "A tough day. When things felt out of control, what was your first thought?", "options": "Why is this happening to me?|Who is responsible for this mess?|What is the one thing I can still control?|I'll just wait for tomorrow", "target": "", "signal": "axis1:external" },
+  
+  { "id": "A1_R_INTERNAL", "parentId": "A1_Q_VICTOR", "type": "reflection", "text": "That's an internal locus. You're recognizing that your choices shape your outcomes. Keep that agency high.", "options": "Continue", "target": "BRIDGE_1_2", "signal": "axis1:internal" },
+  
+  { "id": "A1_R_EXTERNAL", "parentId": "A1_Q_VICTIM", "type": "reflection", "text": "It's easy to feel like a passenger on hard days. But remember, even in chaos, you choose your response.", "options": "Continue", "target": "BRIDGE_1_2", "signal": "axis1:external" },
+
+  { "id": "BRIDGE_1_2", "parentId": null, "type": "bridge", "text": "Now, let’s shift from how you handled the day to what you brought to the table for others.", "options": "", "target": "A2_OPEN", "signal": "" },
+
+  { "id": "A2_OPEN", "parentId": "BRIDGE_1_2", "type": "question", "text": "Think about your interactions today. Which of these resonates most?", "options": "I went out of my way to help a colleague|I shared my knowledge to solve a problem|I felt I wasn't given enough support|I focused strictly on my own tasks", "target": "", "signal": "" },
+
+  { "id": "A2_D1", "parentId": "A2_OPEN", "type": "decision", "text": "", "options": "answer=I went out of my way to help a colleague|I shared my knowledge to solve a problem:A2_Q_CONTRIB;answer=I felt I wasn't given enough support|I focused strictly on my own tasks:A2_Q_ENTITLE", "target": "", "signal": "" },
+
+  { "id": "A2_Q_CONTRIB", "parentId": "A2_D1", "type": "question", "text": "Giving energy feels good. What motivated you to contribute?", "options": "The team's success is my success|I enjoy solving problems|It's my responsibility|I wanted recognition", "target": "", "signal": "axis2:contribution" },
+
+  { "id": "A2_Q_ENTITLE", "parentId": "A2_D1", "type": "question", "text": "It's okay to feel overlooked sometimes. What did you feel was missing today?", "options": "Proper appreciation from management|Clearer instructions from others|Help from lazy teammates|Nothing, I just stayed in my lane", "target": "", "signal": "axis2:entitlement" },
+
+  { "id": "A2_R_HIGH", "parentId": "A2_Q_CONTRIB", "type": "reflection", "text": "You're operating with a contribution mindset. This is how leaders are built—by adding value beyond the job description.", "options": "Continue", "target": "BRIDGE_2_3", "signal": "axis2:contribution" },
+
+  { "id": "A2_R_LOW", "parentId": "A2_Q_ENTITLE", "type": "reflection", "text": "Entitlement often masks frustration. Try to find one small thing you can 'give' tomorrow without expecting a return.", "options": "Continue", "target": "BRIDGE_2_3", "signal": "axis2:entitlement" },
+
+  { "id": "BRIDGE_2_3", "parentId": null, "type": "bridge", "text": "Finally, let's look at the 'size' of your world today.", "options": "", "target": "A3_OPEN", "signal": "" },
+
+  { "id": "A3_OPEN", "parentId": "BRIDGE_2_3", "type": "question", "text": "When you were stressed today, what was the primary concern in your head?", "options": "My workload and my deadlines|My reputation and how I look|How my stress affects the team|The value we are (or aren't) delivering to the customer", "target": "", "signal": "" },
+
+  { "id": "A3_D1", "parentId": "A3_OPEN", "type": "decision", "text": "", "options": "answer=My workload and my deadlines|My reputation and how I look:A3_Q_SELF;answer=How my stress affects the team|The value we are (or aren't) delivering to the customer:A3_Q_ALTRO", "target": "", "signal": "" },
+
+  { "id": "A3_Q_SELF", "parentId": "A3_D1", "type": "question", "text": "It's natural to focus inward when under pressure. How did that feel?", "options": "Exhausting and lonely|Necessary for survival|I didn't think about it|I felt in control", "target": "", "signal": "axis3:self" },
+
+  { "id": "A3_Q_ALTRO", "parentId": "A3_D1", "type": "question", "text": "You kept the 'Big Picture' in mind. Why was that important today?", "options": "Because we're all in this together|It makes my own problems feel smaller|It's the only way to get real results|I want to be a helpful person", "target": "", "signal": "axis3:altro" },
+
+  { "id": "A3_R1", "parentId": "A3_Q_SELF", "type": "reflection", "text": "A narrow radius can make problems feel huge. Tomorrow, try to zoom out.", "options": "Continue", "target": "SUMMARY", "signal": "axis3:self" },
+
+  { "id": "A3_R2", "parentId": "A3_Q_ALTRO", "type": "reflection", "text": "Self-transcendence is a superpower. By focusing on the 'Us', you've contextualized your own challenges.", "options": "Continue", "target": "SUMMARY", "signal": "axis3:altro" },
+
+  { "id": "SUMMARY", "parentId": null, "type": "summary", "text": "Reflection Complete. Today you showed {axis1.dominant} agency, a focus on {axis2.dominant}, and a {axis3.dominant} radius of concern.", "options": "Finish Session", "target": "END", "signal": "" },
+
+  { "id": "END", "parentId": "SUMMARY", "type": "end", "text": "Rest well. You've done the hard work of thinking. See you tomorrow!", "options": "", "target": "", "signal": "" }
+]
